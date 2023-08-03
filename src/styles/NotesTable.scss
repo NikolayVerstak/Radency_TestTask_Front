@@ -1,0 +1,139 @@
+@import "ReusableStyles.scss";
+
+/* Notes table */
+.notes-table-wrapper {
+    margin-bottom: 4rem;
+    position: relative;
+
+    #tableName {
+        color: $dark-color;
+        font-size: 1.8rem;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+#notesTableHeader {
+    @include table-header-styles;
+}
+
+#notesTableBody {
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    @include table-body-styles;
+
+    & .table-row {
+        grid-template-columns: $notes-column-width;
+
+        & .empty-list {
+            padding: 0 1rem;
+        }
+    }
+
+    @include category-icon-styles;
+}
+
+/* Icons Create, Edit, Delete, Archive, Unarchive */
+.action-icons {
+    &.single {
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+        grid-template-areas: "edit archive delete";
+        fill: #7a7a7a;
+
+        & svg:hover {
+            fill: #636363;
+            scale: 1.15;
+        }
+
+        & .edit-single-note {
+            grid-area: edit;
+        }
+
+        & .archive-single-note,
+        .unarchive-single-note {
+            grid-area: archive;
+        }
+
+        & .delete-single-note {
+            grid-area: delete;
+        }
+    }
+
+    & span {
+        height: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & svg {
+        cursor: pointer;
+    }
+
+    &.all {
+        fill: #3d3d3fe0;
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+        grid-template-areas: " . archive delete";
+
+        & svg {
+            scale: 0.87;
+
+            &:hover {
+                fill: $dark-color;
+                scale: 0.96;
+            }
+        }
+
+        & .archive-all-notes,
+        .unarchive-all-notes {
+            grid-area: archive;
+        }
+
+        & .delete-all-notes {
+            grid-area: delete;
+        }
+    }
+}
+
+/* Load More Button */
+.load-more {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, calc(50% + 0.8rem));
+    text-align: center;
+
+    & button {
+        border-radius: 50%;
+        border: 1px solid #acabab;
+        padding: 0.45rem;
+        margin-bottom: 0.25rem;
+        width: 2rem;
+        height: 2rem;
+        box-sizing: border-box;
+        background-color: $blue-color;
+        box-shadow: #00000030 0px 10px 20px, #0000003b 0px 6px 6px;
+        cursor: pointer;
+
+        &:hover {
+            border: 1px solid #9fabcf;
+            background-color: #c5d1f5;
+        }
+
+        & svg {
+            font-size: 1rem;
+            fill: $dark-color;
+        }
+    }
+
+    & p {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: $grey-color;
+        text-transform: uppercase;
+    }
+}

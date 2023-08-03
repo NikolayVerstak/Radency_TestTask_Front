@@ -1,0 +1,144 @@
+@import "ReusableStyles.scss";
+
+/* Modal Form */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #696969af;
+    z-index: 2;
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    & .modal-body {
+        position: relative;
+
+        & .close-cross {
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: $grey-color;
+            cursor: pointer;
+
+            &:hover {
+                color: #65676d;
+                scale: 1.2;
+            }
+        }
+
+        & .note-form {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            padding: 1.5rem 2rem;
+            background-color: $light-color;
+            box-shadow: #00000059 0px 5px 15px;
+            border-radius: 0.5rem;
+
+            & :is(input, textarea)::placeholder {
+                font-weight: 400;
+            }
+
+            & label {
+                font-size: 0.85rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #6e7279;
+                margin-bottom: 0.3rem;
+            }
+            & .note-name,
+            .note-category,
+            .note-content {
+                height: 2.4rem;
+                border-radius: 0.35rem;
+                border: 1px solid #aeb2bb70;
+                padding: 0 1rem;
+                box-sizing: border-box;
+                font-weight: 500;
+                font-family: "Roboto", sans-serif;
+                font-size: 1rem;
+                color: #4c4e53;
+                overflow: hidden;
+                margin-bottom: 1.2rem;
+
+                &:focus-visible {
+                    outline: 1px solid #888c94cc;
+                }
+
+                &:disabled {
+                    background-color: #ffffff;
+                    opacity: 1;
+                }
+            }
+            & .note-content {
+                box-sizing: border-box;
+                outline: none;
+                display: block;
+                resize: vertical;
+                max-height: 400px;
+                min-height: 150px;
+                padding: 0.5rem 1rem;
+                overflow-y: auto;
+            }
+
+            & .note-category {
+                & option {
+                    color: #4c4e53;
+                    font-weight: 500;
+                    font-family: "Roboto", sans-serif;
+                }
+            }
+            & button {
+                @include button-styles;
+                background-color: #d3d3d3;
+
+                &:disabled {
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+/* Modal Warning */
+.warning {
+    @include modal-message-styles;
+    color: #eb5252;
+
+    & .delete-button {
+        margin-top: 1rem;
+
+        margin-right: 2rem;
+        background-color: #e7e7e7;
+        &:hover {
+            margin-right: 2rem;
+            box-shadow: #eb7c7c 0px 3px 4px;
+        }
+    }
+}
+
+/* Modal Success */
+.success-result {
+    @include modal-message-styles;
+    & .result-icon {
+        margin: 0;
+
+        & svg {
+            font-size: 2rem;
+            fill: green;
+        }
+    }
+
+    & button.close-button {
+        margin-top: 0.5rem;
+    }
+}
