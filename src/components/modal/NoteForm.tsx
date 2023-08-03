@@ -77,7 +77,8 @@ const NoteForm: React.FC = () => {
                 required
                 value={noteCategory}
                 onChange={(e) => setNoteCategory(e.target.value)}
-                disabled={isShowNoteMode}>
+                disabled={isShowNoteMode}
+                style={{ appearance: isShowNoteMode ? "none" : "auto" }}>
                 <option value="" disabled>
                     Select a category
                 </option>

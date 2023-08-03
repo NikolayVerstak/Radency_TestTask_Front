@@ -2,7 +2,7 @@ import React from "react";
 import { NoteProps } from "../../models";
 import NoteIconsBlock from "../icons/NoteIconsBlock";
 import { categoryIcons } from "../icons/IconsSvg";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHook";
+import { useAppDispatch } from "../../hooks/reduxHook";
 import { NoteIdContextProvider } from "../../context/NoteIdContext";
 import NoteForm from "../modal/NoteForm";
 import { useModalContext } from "../../context/ModalContext";

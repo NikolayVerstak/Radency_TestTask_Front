@@ -19,7 +19,7 @@ const useFilteredNotes = () => {
             });
         };
         return getFilteredNotes();
-    }, [currentTable, notes]);
+    }, [notes, currentCategory, currentArchivedStatus]);
 
     let headerText;
     if (currentCategory === "All") {
