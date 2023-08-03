@@ -2,7 +2,7 @@
 
 The Notes Manager App is a simple application that allows users to manage and organize their notes. Users can create, edit, delete, archive, and unarchive notes. Notes can be categorized into different categories such as "Task," "Random Thought," and "Idea."
 
-The app is deployed at the following link: **https://nikolayverstak.github.io/note-react-app/**.
+The app is deployed at the following link: **https://notes-react-app.onrender.com**.
 
 ## Features:
 
