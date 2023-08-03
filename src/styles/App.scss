@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+@import "ReusableStyles.scss";
+@import "Modal.scss";
+@import "NotesTable.scss";
+@import "SummaryTable.scss";
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.page-wrapper {
+    display: grid;
+    padding: 1rem;
+    box-sizing: border-box;
+    place-items: center;
+    min-height: 100vh;
+
+    main {
+        width: 1000px;
+        min-height: 800px;
+        padding: 1rem;
+        cursor: default;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+/* Create Note Button */
+.create-return-buttons {
+    display: flex;
+    justify-content: flex-end;
+    height: 2.5rem;
+
+    & .return {
+        @include button-styles;
+
+        background-color: #e7e7e78a;
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    & .create-note {
+        background-color: $blue-color;
+        margin-left: 1rem;
+        border: 1px solid #acabab;
+        border-radius: 0.35rem;
+        padding: 0.5rem 0.7rem;
+        color: #57575a;
+        font-size: 1.2rem;
+        font-weight: 700;
+        word-spacing: 0.1rem;
+        cursor: pointer;
+
+        &:hover {
+            border: 1px solid #9fabcf;
+            background-color: #c5d1f5;
+            box-shadow: #858585 0px 3px 4px;
+        }
+    }
+}
+
+/* Active/Archive Switch */
+.toggle-notes {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    border-radius: 0.35rem;
+    border: 1px solid #acababb7;
+    overflow: hidden;
+
+    & button {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        width: 5rem;
+        color: #4c4e5363;
+        background-color: #99999925;
+        border-color: transparent;
+        cursor: pointer;
+
+        &.active {
+            color: $light-color;
+            background-color: #999999;
+        }
+
+        &.inactive:hover {
+            color: #4c4e53;
+        }
+    }
+
+    &::after {
+        content: "";
+        width: 1px;
+        background-color: #99999993;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
